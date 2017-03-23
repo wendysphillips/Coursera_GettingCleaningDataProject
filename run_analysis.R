@@ -3,7 +3,7 @@
 #Merges the training and the test sets to create one data set.
 #Extracts only the measurements on the mean and standard deviation for each measurement.
 #Uses descriptive activity names to name the activities in the data set
-#Appropriately data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAABCklEQVR42u3Tv2rCUBQGcCkFF11cXCooDoEo4tAgaZdMhTyIu2PBQRydBBfXTtIX8IF8iOTcvzk9J8S0EBsSHerQCx/c4d4f383NbTT+x3L3ie/bQ2nmq32aMAybpdhi84Hr4wljiAsBwQEUUqBUMl3HaCnICy6CBIFkTKIiTGt9HciNAL5bSaVQGY3amPogZKAQhHEzrQjSaKxBa209kFsBt8qa8RENtbKUhDBMknpg1fwtqPi7naN0GgHiNjCf8+1S+LKqgA+u67aGY6/3K5g1jeOoAD6N/E4QBI+55jiv7b7rTQfj2dtP0Bibz/nX4URREeR9lO7FhsOp/3J+p1UymDw7hYZ3P74A6xEjKDEtv3EAAAAASUVORK5CYII=labels the data set with descriptive variable names.
+
 #From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 #read the features file
@@ -63,4 +63,4 @@ tidyset <- group_by(wact, subject, activity) %>%
       summarise_each(funs(mean))
 
 #write the final data set to a csv file
-write.csv(tidyset, "tidyset.csv")
+write.table(tidyset, "tidyset.txt", row.names = FALSE)
